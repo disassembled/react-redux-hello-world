@@ -9,6 +9,16 @@ export default function users(state = {}, action) {
                 id: action.id,
                 username: action.username,
             }
+            console.log('Returning state from reducer with user to delete: ' + action.username);
+            return newState;
+
+        case 'users.modalDeleteHide':
+            newState = JSON.parse(JSON.stringify(state));
+            newState.modal.listDelete = {
+                show: false,
+                id: 0,
+                username: '',
+            }
             return newState;
 
         default:

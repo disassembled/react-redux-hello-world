@@ -18,3 +18,8 @@ export default class UserListElement extends React.Component {
         );
     }
 }
+
+// make sure we have all the props
+UserListElement.propTypes = {
+    user: React.PropTypes.object.isRequired
+}

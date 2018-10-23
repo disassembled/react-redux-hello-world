@@ -25,3 +25,8 @@ export default class UserList extends React.Component {
         );
     }
 }
+
+// make sure we have all the props
+UserList.propTypes = {
+    users: React.PropTypes.array.isRequired
+}

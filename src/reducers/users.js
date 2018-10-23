@@ -3,7 +3,7 @@ export default function users(state = {}, action) {
     switch(action.type) {
         case 'users.modalDeleteShow':
             newState = JSON.parse(JSON.stringify(state));
-            newState.modal = newState.modal ? newState.Modal : {};
+            newState.modal = newState.modal ? newState.modal : {};
             newState.modal.listDelete = {
                 show: true,
                 id: action.id,

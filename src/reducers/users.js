@@ -30,7 +30,8 @@ class reducerClass {
     }
 
     static sortByUsername(newState, action) {
-        newState.list.sort((a,b) => (a.username > b.username) ? 1 : ((b.username > a.username) ? -1 : 0));
+        newState.usernameSort = -newState.usernameSort;
+        newState.list.sort((a,b) => (a.username > b.username) ? newState.usernameSort : ((b.username > a.username) ? -newState.usernameSort : 0));
         return newState;
     }
 }

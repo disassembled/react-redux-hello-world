@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 
 class UserList extends React.Component {
     render() {
+        console.log('UserList.render');
         return(
             <div>
                 <Table bordered hover responsive striped>
@@ -34,6 +35,7 @@ class UserList extends React.Component {
 
 // export the connected class
 function mapStateToProps(state) {
+    console.log('UserList.mapStateToProps');
     return({
         users: state.users.list,
     });

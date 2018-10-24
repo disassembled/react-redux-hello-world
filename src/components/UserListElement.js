@@ -4,12 +4,14 @@ import { connect } from 'react-redux';
 
 class UserListElement extends React.Component {
     constructor(props) {
+        console.log('UserListElement.constructor');
         super(props);
         // bind <this> to the event methods
         this.modalDeleteShow = this.modalDeleteShow.bind(this);
     }
 
     render() {
+        console.log('UserListElement.render');
         const user = this.props.user;
         return(
             <tr>
@@ -32,8 +34,13 @@ class UserListElement extends React.Component {
         );
     }
 
+    /**
+     *      mapStateToProps() not required, presumably because props are passed in from UserList
+     */
+
     // prompt to delete the user
     modalDeleteShow(event) {
+        console.log('UserListElement.modalDeleteShow');
         const userId = Number(event.target.dataset.id);
         const username = event.target.dataset.username; 
         this.props.dispatch({

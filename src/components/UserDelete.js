@@ -7,12 +7,14 @@ import { connect } from 'react-redux';
  */
 class UserDelete extends React.Component {
     constructor(props) {
+        console.log('UserDelete.constructor');
         super(props);
         // bind <this> to the event methods
         this.modalDeleteHide = this.modalDeleteHide.bind(this);
     }
 
     render() {
+        console.log('UserDelete.render');
         return(
             <Modal show={this.props.modalDelete.show}>
                 <Modal.Header>
@@ -30,6 +32,7 @@ class UserDelete extends React.Component {
 
     // close the delete user dialog
     modalDeleteHide(event) {
+        console.log('UserDelete.modalDeleteHide');
         this.props.dispatch({
             type: 'users.modalDeleteHide',
         });

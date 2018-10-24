@@ -9,11 +9,12 @@ import { reducers } from './reducers/index';
 
 // build users list
 let users = [];
-for(let i=1; i<11; i++) {
+let usernames = ['John', 'Paul', 'Ringo', 'George', 'Wilma', 'Betty', 'Arthur'];
+for(let i=0; i<7; i++) {
     users.push({
         id: i,
-        username: 'John '+ i,
-        job: 'Employee ' + i,
+        username: usernames[i],
+        job: 'Employee ' + (i+1),
     });
 }
 

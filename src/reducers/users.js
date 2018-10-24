@@ -28,4 +28,9 @@ class reducerClass {
         newState.list = newState.list.filter(user => user.id !== action.id);
         return newState;
     }
+
+    static sortByUsername(newState, action) {
+        newState.list.sort((a,b) => (a.username > b.username) ? 1 : ((b.username > a.username) ? -1 : 0));
+        return newState;
+    }
 }

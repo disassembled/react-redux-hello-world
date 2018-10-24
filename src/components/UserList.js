@@ -1,10 +1,15 @@
 import React from 'react';
-import { Table } from 'react-bootstrap';
+import { Glyphicon, Table } from 'react-bootstrap';
 import UserListElement from './UserListElement';
 import UserDelete from './UserDelete';
 import { connect } from 'react-redux';
 
 class UserList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.sortByUsername = this.sortByUsername.bind(this);
+    }
+
     render() {
         console.log('UserList.render');
         return(
@@ -13,7 +18,7 @@ class UserList extends React.Component {
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Username</th>
+                            <th>Username <Glyphicon glyph="glyphicon glyphicon-sort" onClick={this.sortByUsername} /></th>
                             <th>Job</th>
                             <th>Edit</th>
                             <th>Delete</th>
@@ -30,6 +35,13 @@ class UserList extends React.Component {
                 <UserDelete/>
             </div>
         );
+    }
+
+    sortByUsername() {
+        console.log('sortByUsername');
+        this.props.dispatch({
+            type: 'users.sortByUsername',
+        });
     }
 }
 

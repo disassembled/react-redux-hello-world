@@ -21,6 +21,11 @@ export default function users(state = {}, action) {
             }
             return newState;
 
+        case 'users.delete':
+            newState = JSON.parse(JSON.stringify(state));
+            newState.list = newState.list.filter(i => i.id !== action.id);
+            return newState;
+
         default:
             // no action passed so show default state
             return state;

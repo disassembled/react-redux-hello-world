@@ -11,6 +11,7 @@ class UserDelete extends React.Component {
         super(props);
         // bind <this> to the event methods
         this.modalDeleteHide = this.modalDeleteHide.bind(this);
+        this.userDelete = this.userDelete.bind(this);
     }
 
     render() {
@@ -24,7 +25,7 @@ class UserDelete extends React.Component {
                 </Modal.Header>
                 <Modal.Footer>
                     <Button onClick={this.modalDeleteHide}>No</Button>
-                    <Button bsStyle="primary">Yes</Button>
+                    <Button bsStyle="primary" onClick={this.userDelete}>Yes</Button>
                 </Modal.Footer>
             </Modal>
         );
@@ -33,6 +34,19 @@ class UserDelete extends React.Component {
     // close the delete user dialog
     modalDeleteHide(event) {
         console.log('UserDelete.modalDeleteHide');
+        this.props.dispatch({
+            type: 'users.modalDeleteHide',
+        });
+    }
+
+    userDelete(event) {
+        // delete the user
+        this.props.dispatch({
+            type: 'users.delete',
+            id: this.props.modalDelete.id,
+        });
+
+        // hide the modal
         this.props.dispatch({
             type: 'users.modalDeleteHide',
         });

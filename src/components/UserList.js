@@ -1,6 +1,7 @@
 import React from 'react';
 import { Glyphicon, Table } from 'react-bootstrap';
 import UserListElement from './UserListElement';
+import UserFilter from './UserFilter';
 import UserDelete from './UserDelete';
 import { connect } from 'react-redux';
 
@@ -8,6 +9,7 @@ class UserList extends React.Component {
     constructor(props) {
         super(props);
         this.sortByUsername = this.sortByUsername.bind(this);
+        this.modalFilterShow = this.modalFilterShow.bind(this);
     }
 
     render() {
@@ -22,7 +24,7 @@ class UserList extends React.Component {
                             <th>Job</th>
                             <th>Edit</th>
                             <th>Delete</th>
-                            <th>Access <Glyphicon glyph="glyphicon glyphicon-filter" /></th>
+                            <th>Access <Glyphicon glyph="glyphicon glyphicon-filter" onClick={this.modalFilterShow} /></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,15 +35,23 @@ class UserList extends React.Component {
                         })}
                     </tbody>
                 </Table>
+                <UserFilter/>
                 <UserDelete/>
             </div>
         );
     }
 
     sortByUsername() {
-        console.log('sortByUsername');
+        console.log('UserList.sortByUsername');
         this.props.dispatch({
             type: 'users.sortByUsername',
+        });
+    }
+
+    modalFilterShow() {
+        console.log('UserList.modalFilterShow');
+        this.props.dispatch({
+            type: 'users.modalFilterShow',
         });
     }
 }

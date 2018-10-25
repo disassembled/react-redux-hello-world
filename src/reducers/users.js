@@ -34,4 +34,19 @@ class reducerClass {
         newState.list.sort((a,b) => (a.username > b.username) ? newState.usernameSort : ((b.username > a.username) ? -newState.usernameSort : 0));
         return newState;
     }
+
+    static modalFilterShow(newState, action) {
+        newState.modal = newState.modal ? newState.modal : {};
+        newState.modal.modalFilter = {
+            show: true,
+        }
+        return newState;
+    }
+
+    static modalFilterHide(newState, action) {
+        newState.modal.modalFilter = {
+            show: false,
+        }
+        return newState;
+    }
 }

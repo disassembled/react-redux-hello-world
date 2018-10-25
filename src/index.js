@@ -7,21 +7,24 @@ import './stylesheets/main.scss';
 import App from './components/App';
 import { reducers } from './reducers/index';
 
-// build users list
-let users = [];
-let usernames = ['John', 'Paul', 'Ringo', 'George', 'Wilma', 'Betty', 'Arthur'];
-for(let i=0; i<7; i++) {
-    users.push({
-        id: i,
-        username: usernames[i],
-        job: 'Employee ' + (i+1),
-    });
-}
+let users = [
+    { id: 1, username: 'John',   job: 'Cleaner',           access: ['Cupboard']},
+    { id: 2, username: 'Paul',   job: 'HR',                access: ['HR']},
+    { id: 3, username: 'George', job: 'Boss',              access: ['Everything']},
+    { id: 4, username: 'Ringo',  job: 'Secretary',         access: ['Everything']},
+    { id: 5, username: 'Wilma',  job: 'Sales',             access: ['Sales', 'HR', 'Factory']},
+    { id: 6, username: 'Betty',  job: 'Hostile Takeovers', access: ['War room']},
+    { id: 7, username: 'Arthur', job: 'Hitchhiker',        access: ['Vogon ship', 'Local pub']},
+];
+
+let access = users.map(user => user.access).reduce((a, b) => [...a, ...b]);
+access = [...new Set(access)];
 
 const initialState = {
     users: {
         list: users,
         usernameSort: -1,
+        access: access,
     }
 }
 

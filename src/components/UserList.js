@@ -22,6 +22,7 @@ class UserList extends React.Component {
                             <th>Job</th>
                             <th>Edit</th>
                             <th>Delete</th>
+                            <th>Access <Glyphicon glyph="glyphicon glyphicon-filter" /></th>
                         </tr>
                     </thead>
                     <tbody>

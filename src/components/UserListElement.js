@@ -30,6 +30,7 @@ class UserListElement extends React.Component {
                         Delete <Glyphicon glyph="remove-circle"/>
                     </Button>
                 </td>
+                <td>{user.access.join(', ')}</td>
             </tr>
         );
     }

@@ -18,13 +18,14 @@ let users = [
 ];
 
 let access = users.map(user => user.access).reduce((a, b) => [...a, ...b]);
-access = [...new Set(access)];
+let areas = [...new Set(access)].map(area => { return { name: area, show: true }});
 
+console.log('Creating initial state:')
 const initialState = {
     users: {
         list: users,
         usernameSort: -1,
-        access: access,
+        areas: areas,
     }
 }
 

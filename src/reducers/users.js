@@ -49,4 +49,10 @@ class reducerClass {
         }
         return newState;
     }
+
+    static toggleArea(newState, action) {
+        let area = newState.areas.find(a => a.name === action.areaName);
+        area.show = !area.show;
+        return newState;
+    }
 }

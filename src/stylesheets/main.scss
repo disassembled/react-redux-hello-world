@@ -9,17 +9,11 @@
     }
 }
 
-div.area {
+div.area-filter {
+    display: inline;
+    float: left;
     text-align: left;
     width: 150px;
     cursor: pointer;
-    padding-top: 6px;
-
-    &.area-show {
-        font-weight: bold;
-    }
-
-    &.area-hide {
-        text-decoration: line-through;
-    }
+    padding: 8px;
 }

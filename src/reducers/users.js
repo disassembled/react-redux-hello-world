@@ -52,7 +52,7 @@ class reducerClass {
 
     static toggleArea(newState, action) {
         let area = newState.areas.find(a => a.name === action.areaName);
-        area.show = !area.show;
+        area.checked = !area.checked;
         return newState;
     }
 }

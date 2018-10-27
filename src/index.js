@@ -18,7 +18,7 @@ let users = [
 ];
 
 let access = users.map(user => user.access).reduce((a, b) => [...a, ...b]);
-let areas = [...new Set(access)].map(area => { return { name: area, show: true }});
+let areas = [...new Set(access)].map(area => { return { name: area, checked: true }});
 
 console.log('Creating initial state:')
 const initialState = {

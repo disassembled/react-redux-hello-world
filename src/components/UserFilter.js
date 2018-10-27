@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Grid, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 class UserFilter extends React.Component {
@@ -20,11 +20,12 @@ class UserFilter extends React.Component {
                 </Modal.Header>
                 <Modal.Footer>
                     {this.props.areas.map((area, index) => {
-                       return (
-                           <div className={area.show ? "area area-show" : "area area-hide"} key={index} data-areaname={area.name} onClick={this.toggleArea}>
-                               {area.name}
+                        return (
+                            <div className="area-filter" key={index}>
+                                <input type="checkbox" value={area.name} defaultChecked={area.checked} onChange={this.toggleArea} />
+                                {area.name}
                             </div>
-                       );
+                        );
                     })}
                     <Button onClick={this.modalFilterHide}>Close</Button>
                 </Modal.Footer>
@@ -33,10 +34,10 @@ class UserFilter extends React.Component {
     }
 
     toggleArea(event) {
-        console.log(`toggleArea: ${event.target.dataset.areaname}`);
+        console.log(`toggleArea: ${event.target.value}`);
         this.props.dispatch({
             type: 'users.toggleArea',
-            areaName: event.target.dataset.areaname,
+            areaName: event.target.value,
         });
     }
 

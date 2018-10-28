@@ -43,7 +43,17 @@ class reducerClass {
         return newState;
     }
 
-    static modalFilterHide(newState, action) {
+    static applyFilters(newState, action) {
+        let areasChecked = newState.areas.filter(a => a.checked);
+        newState.list.forEach(user => {
+            user.show = false;
+            areasChecked.forEach(area => {
+                if(user.access.includes(area.name)) {
+                    user.show = true;
+                }
+            });
+        });
+
         newState.modal.modalFilter = {
             show: false,
         }

@@ -28,7 +28,7 @@ class UserList extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.users.map((user, index) => {
+                        {this.props.users.filter(u => u.show).map((user, index) => {
                             return (
                                 <UserListElement key={user.id} user={user}/>
                             );

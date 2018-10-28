@@ -7,7 +7,7 @@ class UserFilter extends React.Component {
         super(props);
         // bind <this> to the event methods
         this.toggleArea = this.toggleArea.bind(this);
-        this.modalFilterHide = this.modalFilterHide.bind(this);
+        this.applyFilters = this.applyFilters.bind(this);
     }
 
     render() {
@@ -27,7 +27,7 @@ class UserFilter extends React.Component {
                             </div>
                         );
                     })}
-                    <Button onClick={this.modalFilterHide}>Close</Button>
+                    <Button onClick={this.applyFilters}>Close</Button>
                 </Modal.Footer>
             </Modal>
         );
@@ -41,10 +41,10 @@ class UserFilter extends React.Component {
         });
     }
 
-    modalFilterHide(event) {
-        console.log('UserFilter.modalFilterHide');
+    applyFilters(event) {
+        console.log('UserFilter.applyFilters');
         this.props.dispatch({
-            type: 'users.modalFilterHide',
+            type: 'users.applyFilters',
         });
     }
 }

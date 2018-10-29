@@ -1,11 +1,21 @@
 .container {
-    width: 700px;
+    width: 800px;
     margin-top: 50px
 }
 
 .glyphicon {
     &.glyphicon-sort, &.glyphicon-filter {
         cursor: pointer;
+    }
+    &.glyphicon-star {
+        font-size: 21px;
+        padding-right: 2px;
+        color: #999900;
+    }
+    &.glyphicon-star-empty {
+        font-size: 21px;
+        padding-right: 2px;
+        color: #999900;
     }
 }
 

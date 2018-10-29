@@ -31,6 +31,11 @@ class UserListElement extends React.Component {
                     </Button>
                 </td>
                 <td>{user.access.join(', ')}</td>
+                <td>
+                    {[...Array(5)].map((item, key) =>
+                        <Glyphicon key={key} glyph={ "glyphicon " + (key < user.rating ? "glyphicon-star" : "glyphicon-star-empty") } />
+                    )}
+                </td>
             </tr>
         );
     }

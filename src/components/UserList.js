@@ -25,6 +25,7 @@ class UserList extends React.Component {
                             <th>Edit</th>
                             <th>Delete</th>
                             <th>Access <Glyphicon glyph="glyphicon glyphicon-filter" onClick={this.modalFilterShow} /></th>
+                            <td>Rating</td>
                         </tr>
                     </thead>
                     <tbody>
